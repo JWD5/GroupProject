@@ -34,7 +34,6 @@
           </div>
           
           <!-- input description -->
-          <!-- WE NEED TO MAKE BOX BIGGER -->
           <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <input type="text" class="form-control" id="description" aria-describedby="input description" />
@@ -53,22 +52,26 @@
             <div class="col">
               <div class="mb-3">
                 <label for="dueDate" class="form-label">Due Date</label>
-                <input type="text" class="form-control" id="dueDate" aria-describedby="input due date"
+                <input type="text" class="form-control datepicker" id="dueDate" aria-describedby="input due date"
                   placeholder="DD/MM/YYYY" />
               </div>
             </div>
+          </div>
 
             <!-- Status Drop Down  -->
-            <div class="mb-3">
-              <label for="status" class="form-label">Status</label>
-              <select id="status" class="form-select">
-                <option>To Do</option>
-                <option>In Progress</option>
-                <option>Review</option>
-                <option>Done</option>
-              </select>
+            <div class="row">
+              <div class="col-6 mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select id="status" class="form-select">
+                  <option>To Do</option>
+                  <option>In Progress</option>
+                  <option>Review</option>
+                  <option>Done</option>
+                </select>
+              </div>
             </div>
-          </div>
+            
+          
           <!-- Button -->
           <div class="text-center">
             <button type="submit" class="btn btn-dark">Add Task</button>
