@@ -7,3 +7,12 @@
 .list-border {
     border: none !important ;
 }
+
+.fa-trash {
+    color: red;
+    font-size:larger
+}
+
+.btn:hover {
+    border: 1px solid red;
+}
