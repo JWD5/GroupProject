@@ -13,6 +13,6 @@
     font-size:larger
 }
 
-.btn:hover {
+.btn-trash:hover {
     border: 1px solid red;
 }
