@@ -125,4 +125,6 @@ const validFormFieldInput = (event) => {
 
 taskForm.addEventListener("submit", validFormFieldInput);
 
-
+// test to create a task HTML 
+// let taskHtml = createTaskHtml("Cooking","dinner for tonight", "Ana", "11/06/2021", "Pending");
+// console.log(taskHtml);
