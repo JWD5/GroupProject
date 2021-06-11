@@ -22,30 +22,20 @@ let validationAssignedTo = document.querySelector("#validationAssignedTo");
 let validationDueDate = document.querySelector("#validationDueDate");
 let validationStatus = document.querySelector("#validationStatus");
 let taskForm = document.querySelector("#taskForm");
-// function validation form inputs
-// const validFormFieldInput = (data, message) => {
-//     if(data.value.length >= 5){
-//         message.innerHTML = "Looks good!";
-//         //console.log(data.target.value);
-//         message.style.color = "green";
-//         data.style.borderColor = "green";
-//     } else {
-//         message.innerHTML = "Please provide a valid description";
-//         message.style.color = "red";
-//         data.style.borderColor = "red";
-//     }
-// };
-
-
-//submitTask.addEventListener("click", validFormFieldInput(taskName,validationName));
 
 const validFormFieldInput = (event) => {
     event.preventDefault();
+    let nameOk = false;
+    let descriptionOk = false;
+    let assignOk = false;
+    let dateOk = false;
+    let statusOk = false;
     // Name input validation
     if(taskName.value.length >= 5){
         validationName.innerHTML = "Looks good!";
         validationName.style.color = "green";
         taskName.style.borderColor = "green";
+        nameOk = true;
     } else {
         validationName.innerHTML = "Please provide a valid description";
         validationName.style.color = "red";
@@ -56,6 +46,7 @@ const validFormFieldInput = (event) => {
         validationDescription.innerHTML = "Looks good!";
         validationDescription.style.color = "green";
         description.style.borderColor = "green"
+        descriptionOk = true;
     } else {
         validationDescription.innerHTML = "Please provide a valid description";
         validationDescription.style.color = "red";
@@ -66,6 +57,7 @@ const validFormFieldInput = (event) => {
         validationAssignedTo.innerHTML = "Looks good!";
         validationAssignedTo.style.color = "green";
         assignedTo.style.borderColor = "green";
+        assignOk = true;
     } else {
         validationAssignedTo.innerHTML = "Please provide a valid description";
         validationAssignedTo.style.color = "red";
@@ -77,6 +69,7 @@ const validFormFieldInput = (event) => {
         validationDueDate.innerHTML = "Looks good!";
         validationDueDate.style.color = "green";
         dueDate.style.borderColor = "green";
+        dateOk = true;
     } else {
         validationDueDate.innerHTML = "Please provide a valid description";
         validationDueDate.style.color = "red";
@@ -87,42 +80,49 @@ const validFormFieldInput = (event) => {
         validationStatus.innerHTML = "Looks good!";
         validationStatus.style.color = "green";
         status.style.borderColor = "green";
+        statusOk = true;
     } else {
         event.preventDefault();
         validationStatus.innerHTML = "Please provide a valid description";
         validationStatus.style.color = "red";
         status.style.borderColor = "red";
     }
+    
+    // add task step
+    if(nameOk && descriptionOk && assignOk && dateOk && statusOk){
+        taskManager.addTask(taskName.value, description.value, assignedTo.value, dueDate.value, status.value);
+        console.log(taskManager.tasks);
 
+// reset inputs fields
+
+        // reset name
+        taskName.value = "";
+        validationName.style.display = "none";
+        taskName.style.borderColor = "#ced4da";
+
+        // reset description
+        description.value = "";
+        validationDescription.style.display = "none";
+        description.style.borderColor = "#ced4da";
+
+        // reset assignTo
+        assignedTo.value = "";
+        validationAssignedTo.style.display = "none";
+        assignedTo.style.borderColor = "#ced4da";
+
+        // reset date
+        dueDate.value = "";
+        validationDueDate.style.display = "none";
+        dueDate.style.borderColor = "#ced4da";
+
+        // reset satus
+        status.value = "Select";
+        validationStatus.style.display = "none";
+        status.style.borderColor = "#ced4da";
+    }
 };
-
 
 
 taskForm.addEventListener("submit", validFormFieldInput);
 
 
-// submitTask.addEventListener("click", validName);
-// submitTask.addEventListener("click", validDescription);
-// submitTask.addEventListener("click", validAssign);
-// submitTask.addEventListener("click", validDate);
-// submitTask.addEventListener("click", validStatus);
-
-
-
-// const createTask = (event) => {
-//     event.preventDefault();
-//     // if(validName && validDescription && validAssign && validDate && validStatus){
-//     //     taskManager.addTask(taskName.value, description.value, assignedTo.value, dueDate.value, status.value);
-//     // }
-//     taskManager.addTask(taskName.value, description.value, assignedTo.value, dueDate.value, status.value);
-//     console.log(taskManager.tasks);
-    
-// };
-// taskForm.addEventListener("submit", createTask);
-
-// const resetInput = (event) => {
-//     event.preventDefault();
-//     taskName.value = "";
-// };
-
-// submitTask.addEventListener("click", resetInput);
