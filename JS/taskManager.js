@@ -35,6 +35,25 @@ class TaskManager {
     }
     render(){
         const tasksHtmlList = [];
+        for(let i = 0; i < this.tasks.length; i++){
+          const renderTask = this.tasks[i];
+          //console.log(renderTask);
+          const date = new Date(renderTask.newTask.dueDate);
+          //console.log(date);
+          const formattedDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+          //console.log(formattedDate);
+          const taskHtml = createTaskHtml(
+            renderTask.newTask.name, 
+            renderTask.newTask.description, 
+            renderTask.newTask.assignedTo, 
+            formattedDate, 
+            renderTask.newTask.status);
+          tasksHtmlList.push(taskHtml);
+          //console.log(taskHtml);
+        }
+        const taskHtml = tasksHtmlList.join("\n");
+        const taskList = document.querySelector("#displayTask");
+        taskList.innerHTML = taskHtml;
     }
 };
 
