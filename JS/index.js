@@ -91,7 +91,7 @@ const validFormFieldInput = (event) => {
     // add task step
     if(nameOk && descriptionOk && assignOk && dateOk && statusOk){
         taskManager.addTask(taskName.value, description.value, assignedTo.value, dueDate.value, status.value);
-        console.log(taskManager.tasks);
+        //console.log(taskManager.tasks);
 
 // reset inputs fields
 
@@ -119,10 +119,15 @@ const validFormFieldInput = (event) => {
         status.value = "Select";
         validationStatus.style.display = "none";
         status.style.borderColor = "#ced4da";
+
+        //console.log(taskManager.render());
+        taskManager.render();
     }
 };
 
 
 taskForm.addEventListener("submit", validFormFieldInput);
 
-
+//test to create a task HTML 
+// let taskHtml = createTaskHtml("Cooking","dinner for tonight", "Ana", "11/06/2021", "Pending");
+// console.log(taskHtml);
