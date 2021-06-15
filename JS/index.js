@@ -108,19 +108,6 @@ const dateValidfunc = () => {
         validationDueDate.style.color = "red";
         dueDate.style.borderColor = "red";
         }
-   
-    // if(dueDate.value !== "") {
-    //     validationDueDate.style.display = "block";
-    //     validationDueDate.innerHTML = "Looks good!";
-    //     validationDueDate.style.color = "green";
-    //     dueDate.style.borderColor = "green";
-    //     dateOk = true;
-    // } else {
-    //     validationDueDate.style.display = "block";
-    //     validationDueDate.innerHTML = "Please provide a valid description";
-    //     validationDueDate.style.color = "red";
-    //     dueDate.style.borderColor = "red";
-    // }
 };
 dueDate.addEventListener("input",dateValidfunc);
 
