@@ -98,7 +98,7 @@ const dateValidfunc = () => {
         dateOk = true;
         }else {
             validationDueDate.style.display = "block";
-            validationDueDate.innerHTML = "The Date needs to be greater or equal to Today's Date!";
+            validationDueDate.innerHTML = "The Date needs to be greater or equal than Today's Date!";
             validationDueDate.style.color = "red";
             dueDate.style.borderColor = "red";
         }
