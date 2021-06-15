@@ -86,17 +86,41 @@ assignedTo.addEventListener("input",assignValidFunc);
 const dateValidfunc = () => {
     dateOk = false;
     if(dueDate.value !== "") {
+        let date = new Date(dueDate.value);
+        date.setHours(0,0,0,0);
+        let currentDate = new Date();
+        currentDate.setHours(0,0,0,0);
+        if (currentDate <= date ){
         validationDueDate.style.display = "block";
         validationDueDate.innerHTML = "Looks good!";
         validationDueDate.style.color = "green";
         dueDate.style.borderColor = "green";
         dateOk = true;
+        }else {
+            validationDueDate.style.display = "block";
+            validationDueDate.innerHTML = "The Date needs to be greater or equal to Today's Date!";
+            validationDueDate.style.color = "red";
+            dueDate.style.borderColor = "red";
+        }
     } else {
         validationDueDate.style.display = "block";
         validationDueDate.innerHTML = "Please provide a valid description";
         validationDueDate.style.color = "red";
         dueDate.style.borderColor = "red";
-    }
+        }
+   
+    // if(dueDate.value !== "") {
+    //     validationDueDate.style.display = "block";
+    //     validationDueDate.innerHTML = "Looks good!";
+    //     validationDueDate.style.color = "green";
+    //     dueDate.style.borderColor = "green";
+    //     dateOk = true;
+    // } else {
+    //     validationDueDate.style.display = "block";
+    //     validationDueDate.innerHTML = "Please provide a valid description";
+    //     validationDueDate.style.color = "red";
+    //     dueDate.style.borderColor = "red";
+    // }
 };
 dueDate.addEventListener("input",dateValidfunc);
 
