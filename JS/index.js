@@ -205,6 +205,6 @@ taskList.addEventListener("click", (event) =>{
         task.status = "Done";
 
         taskManager.render();
-        event.target.style.display = "none";
+        //event.target.style.display = "none";
     }   
 });
