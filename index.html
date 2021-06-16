@@ -23,18 +23,28 @@
     <!-- Container Starts here -->
     <div class="container mt-5 px-5">
       <div class="text-center">
-        <h1>Task List</h1>
+        <h1>Task.List </h1>
       </div>
-
-
+      <p>
+        <button class="btn d-grid gap-2 col-3 mx-auto" 
+        id="newTask"
+        type="button" 
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample" 
+            aria-expanded="false" 
+            aria-controls="collapseExample">
+            New Task
+        </button>
+    </p>
       <!-- Form starts Here -->
+    <div class="container form-body">
       <form id="taskForm">
         <fieldset>
-          <legend id="newTask">New Task</legend>
+          <!-- <legend id="newTask" class="text-center bold-label">New Task</legend> -->
           <!-- input name  -->
           <div class="row">
             <div class="mb-3">
-              <label for="taskName" class="form-label">Name</label>
+              <label for="taskName" class="form-label bold-label">Name</label>
               <input type="text" class="form-control" id="taskName" aria-describedby="input name" placeholder="More than 5 characters" />
               <span id="validationName"></span>
             </div>
@@ -42,7 +52,7 @@
           
           <!-- input description -->
           <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
+            <label for="description" class="form-label bold-label">Description</label>
             <input type="text" class="form-control" id="description" aria-describedby="input description" placeholder="More than 5 characters"/>
             <span id="validationDescription"></span>
           </div>
@@ -51,7 +61,7 @@
           <div class="row">
             <div class="col">
               <div class="mb-3">
-                <label for="assignedTo" class="form-label">Assigned To</label>
+                <label for="assignedTo" class="form-label bold-label">Assigned To</label>
                 <input type="text" class="form-control" id="assignedTo" aria-describedby="assignedTo" placeholder="More than 5 characters"/>
                 <span id="validationAssignedTo"></span>
               </div>
@@ -60,7 +70,7 @@
             <!-- Due Date -->
             <div class="col">
               <div class="mb-3">
-                <label for="dueDate" class="form-label">Due Date</label>
+                <label for="dueDate" class="form-label bold-label">Due Date</label>
                 <input type="date" class="form-control" id="dueDate" aria-describedby="input due date"
                   placeholder="DD/MM/YYYY"/>
                 <span id="validationDueDate"></span>
@@ -71,9 +81,8 @@
             <!-- Status Drop Down  -->
             <div class="row">
               <div class="col-6 mb-3">
-                <label for="status" class="form-label">Status</label>
+                <label for="status" class="form-label bold-label">Status</label>
                 <select id="status" class="form-select">
-                  <option>Select</option>
                   <option>To Do</option>
                   <option>In Progress</option>
                   <option>Review</option>
@@ -85,41 +94,18 @@
             
           
           <!-- Button -->
-          <div class="text-center mt-3">
-            <button id="submitTask" type="submit" class="btn btn-success">Add Task</button>
+          <div class="text-center mt-1">
+            <button id="submitTask" type="submit" class="btn btn-warning add-task">Add Task</button>
           </div>
           
         </fieldset>
       </form>
-
+    </div>
       <!-- Form ends here    -->
 
       <!-- cards layout strats here  -->
-      <ul id="displayTask" class="list-group d-flex flex-row flex-wrap  mt-5 justify-content-center">
+      <ul id="taskList" class="list-group d-flex flex-row flex-wrap  mt-5 justify-content-center">
        
-        
-         <!-- <li class="list-group-item list-border">
-          <div class="card cardstyle">
-            <div class="card-body">
-              <h3 class="card-title">Task1</h3>
-              <p class="card-text">Buy broccoli for the week</p>
-              <h6 class="card-subtitle mb-2 mt-2">Assigned To: <span class="h5 strong">Antonio</span></h6>
-              <h6 class="card-subtitle my-3">Date: <span class="strong">21/05/2021</span></h6>
-              <div class="align-items-baseline justify-content-between">
-                <h6 class="card-subtitle my-3 mt-4">Status: <span class="strong">Done</span></h6>
-                <div class="container">
-                  <div class="row row-cols-1 row-cols-md-4 justify-content-between ">
-                    <button class="col-4 btn btn-outline-success"><i class="fa fa-thumbs-o-up "></i>Done</button> 
-                    <button class="col-4 btn btn-outline-danger"><i class="fa fa-trash"></i>Delete</button>
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex align-items-baseline justify-content-center mt-2">
-                <button class="btn btn-outline-success">Done</button>
-              </div>
-            </div>
-          </div>
-        </li> -->
         
         <!-- <li class="list-group-item list-border">
           <div class="card cardstyle">
@@ -141,7 +127,6 @@
           </div>
         </li>
         
-        
         <li class="list-group-item list-border">
           <div class="card cardstyle">
             <div class="card-body">
@@ -202,7 +187,28 @@
               </div>
             </div>
           </div>
-        </li> --> 
+        </li>
+        
+        
+        <li class="list-group-item list-border">
+          <div class="card cardstyle">
+            <div class="card-body">
+              <h3 class="card-title">Task1</h3>
+              <p class="card-text">Buy broccoli for the week</p>
+              <h6 class="card-subtitle mb-2 mt-2">Assigned To: <span class="h5 strong">Antonio</span></h6>
+              <h6 class="card-subtitle my-3">Date: <span class="strong">21/05/2021</span></h6>
+              <div class="align-items-baseline justify-content-between">
+                <h6 class="card-subtitle my-3 mt-4">Status: <span class="strong">Done</span></h6>
+                <div class="container">
+                  <div class="row row-cols-1 row-cols-md-4 justify-content-between ">
+                    <button class="col-4 btn btn-outline-success"><i class="fa fa-thumbs-o-up "></i>Done</button> 
+                    <button class="col-4 btn btn-outline-danger"><i class="fa fa-trash"></i>Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li> -->
       </ul>
       <!-- cards layout ends here  -->
 
@@ -212,7 +218,7 @@
      <!-- footer starts here -->
      <footer class="footer mt-5 py-3">
       <div class="container text-center">
-        <span class="text-muted">Copyright 2021. All rights riserved.</span>
+        <span class="text-muted">Copyright 2021. All rights reserved.</span>
       </div>
     </footer>
     <!-- footer ends here -->

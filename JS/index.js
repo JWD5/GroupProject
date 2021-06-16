@@ -22,6 +22,7 @@ let validationAssignedTo = document.querySelector("#validationAssignedTo");
 let validationDueDate = document.querySelector("#validationDueDate");
 let validationStatus = document.querySelector("#validationStatus");
 let taskForm = document.querySelector("#taskForm");
+let taskList = document.querySelector("#taskList");
 
 let nameOk = false;
 let descriptionOk = false;
@@ -114,7 +115,7 @@ dueDate.addEventListener("input",dateValidfunc);
 // status validation function
 const statusValidFunction = () => {
     statusOk = false;
-    if(status.value !== "Select") {
+    if(status.value !== "To Do") {
         validationStatus.style.display = "block";
         validationStatus.innerHTML = "Looks good!";
         validationStatus.style.color = "green";
@@ -174,7 +175,7 @@ const validFormFieldInput = (event) => {
         dueDate.style.borderColor = "#ced4da";
 
         // reset satus
-        status.value = "Select";
+        status.value = "To Do";
         validationStatus.style.display = "none";
         status.style.borderColor = "#ced4da";
 
@@ -190,3 +191,20 @@ taskForm.addEventListener("submit", validFormFieldInput);
 //test to create a task HTML 
 // let taskHtml = createTaskHtml("Cooking","dinner for tonight", "Ana", "11/06/2021", "Pending");
 // console.log(taskHtml);
+
+
+taskList.addEventListener("click", (event) =>{
+    if (event.target.classList.contains("done-button")){
+        //console.log(event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+        const parentTask = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+        //console.log(parentTask.dataset.taskId);
+        const taskId = Number(parentTask.dataset.taskId);
+        //console.log(taskId);
+        const task = taskManager.getTaskById(taskId);
+        //console.log(task);
+        task.status = "Done";
+
+        taskManager.render();
+        //event.target.style.display = "none";
+    }   
+});
