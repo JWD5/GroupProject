@@ -18,7 +18,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status)  => 
         <div class="container">
           <div class="row row-cols-1 row-cols-md-4 justify-content-center">
             <button class="col-4 btn btn-outline-success done-button ${visibility} mx-5"><i class="fa fa-thumbs-o-up "></i>Done</button> 
-            <button class="col-4 btn btn-outline-danger mx-5"><i class="fa fa-trash"></i>Delete</button>
+            <button class="col-4 btn btn-outline-danger mx-5 delete-button"><i class="fa fa-trash"></i>Delete</button>
           </div>
         </div>
       </div>
@@ -99,4 +99,18 @@ class TaskManager {
         this.currentId = JSON.parse(currentId);
       }
     }
+
+    deleteTask(taskId){
+      let newTasks = [];
+      for(let i = 0; i < this.tasks.length; i++){
+        let task = this.tasks[i];
+        if(task.id !== taskId){
+          newTasks.push(task);
+        }
+      }
+      this.tasks = newTasks;
+    }
+
 };
+
+

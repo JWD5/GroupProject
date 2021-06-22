@@ -214,5 +214,15 @@ taskList.addEventListener("click", (event) =>{
         //Saving the data in the localSorage
         taskManager.save();
     }   
+
+    if(event.target.classList.contains("delete-button")){
+        const parentTask = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;    
+        const taskId = Number(parentTask.dataset.taskId);
+        taskManager.deleteTask(taskId);
+
+        taskManager.render();
+        //Saving the data in the localSorage
+        taskManager.save();
+    }
 });
 
