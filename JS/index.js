@@ -1,3 +1,20 @@
+const newTaskButton = document.querySelector("#newTask");
+
+newTaskButton.addEventListener('click', newTaskToggler);
+
+function newTaskToggler(){
+    document.querySelector("#taskForm").reset();
+    validationName.style.display = "none"
+    validationDescription.style.display = "none";
+    validationAssignedTo.style.display = "none";
+    validationDueDate.style.display = "none";
+    validationStatus.style.display = "none";
+    validationName.innerHTML = "none";
+    validationDescription.innerHTML = "none";
+    validationAssignedTo.innerHTML = "none";
+    validationDueDate.innerHTML = "none";
+    validationStatus.innerHTML = "none";
+};
 
 const taskManager = new TaskManager(0);
 // Testing the TaskManager class
