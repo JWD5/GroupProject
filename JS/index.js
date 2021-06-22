@@ -5,6 +5,9 @@ const taskManager = new TaskManager(0);
 // taskManager.addTask('Cooking', 'Dinner for tonight', 'Antonio', '11/06/2021', 'In Progress');
 // console.log(taskManager.currentId, taskManager.tasks);
 
+// Display older tasks if there are any
+taskManager.load();
+taskManager.render();
 
 let taskName = document.querySelector("#taskName");
 //console.log("new task: " + taskName.value);
@@ -115,7 +118,7 @@ dueDate.addEventListener("input",dateValidfunc);
 // status validation function
 const statusValidFunction = () => {
     statusOk = false;
-    if(status.value !== "To Do") {
+    if(status.value !== "select a status") {
         validationStatus.style.display = "block";
         validationStatus.innerHTML = "Looks good!";
         validationStatus.style.color = "green";
@@ -175,7 +178,7 @@ const validFormFieldInput = (event) => {
         dueDate.style.borderColor = "#ced4da";
 
         // reset satus
-        status.value = "To Do";
+        status.value = "select a status";
         validationStatus.style.display = "none";
         status.style.borderColor = "#ced4da";
 
@@ -183,6 +186,9 @@ const validFormFieldInput = (event) => {
         
     } 
     taskManager.render();
+
+    //Saving the data in the localSorage
+    taskManager.save();
 };
 
 
@@ -205,6 +211,8 @@ taskList.addEventListener("click", (event) =>{
         task.status = "Done";
 
         taskManager.render();
-        //event.target.style.display = "none";
+        //Saving the data in the localSorage
+        taskManager.save();
     }   
 });
+
